@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import validate from '../Validation/FormValidation';
 import eventValidate from '../Validation/EventValidation';
+import { registrationAPI } from '../Services/Services';
+import { message } from 'antd'
+
 function Register() {
 
     const initialValue = { events: "" }
@@ -53,6 +56,13 @@ function Register() {
                 ...formValues,
                 events
             }
+            registrationAPI(data).then((response)=>{
+                if(response.data.status){
+                    message.success('Successfully registered')
+                }
+            }).catch((err)=>{
+                console.log(err)
+            })
         }
     }
 
