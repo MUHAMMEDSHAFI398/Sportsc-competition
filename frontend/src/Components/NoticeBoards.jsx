@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getResultAPI } from '../Services/Services'
+import html2pdf from 'html2pdf.js';
+
 
 function NoticeBoards() {
 
@@ -33,14 +35,29 @@ function NoticeBoards() {
         })
         console.log(highJump)
     }, [])
+
+    const handleDownloadPDF = () => {
+        const element = document.getElementById('pdf-content');
+
+        html2pdf()
+            .set({
+                filename: 'document.pdf',
+                margin: 1.3,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { dpi: 192, letterRendering: true },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+            })
+            .from(element)
+            .save();
+    };
+
     return (
         <div className='p-4 sm:ml-64'>
-            <div className=''>
-
+            <div id="pdf-content" className=''>
                 <div className='flex items-center justify-center mb-[20px]'>
                     <h1 className='text-2xl font-bold underline'>Results</h1>
                 </div>
-
+                <button onClick={handleDownloadPDF}>Download PDF</button>
                 <div className='flex  justify-between flex-wrap mx-9'>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
@@ -69,7 +86,7 @@ function NoticeBoards() {
                     </div>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>Javalin</h3>
+                            <h3 className='font-bold mt-5 underline'>hurdles</h3>
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
@@ -85,7 +102,7 @@ function NoticeBoards() {
                 <div className='flex  justify-between flex-wrap mx-9 mt-2'>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>High jump</h3>
+                            <h3 className='font-bold mt-5 underline'>Jvavlin throw</h3>
                         </div>
                         <div className='mt-3 ml-2'>
                             <p><strong>1.</strong> {javalin[0]?.name ? javalin[0].name : "Not Added"} (Chess no {javalin[0]?.chessno ? javalin[0].chessno : ""})</p>
@@ -96,7 +113,7 @@ function NoticeBoards() {
                     </div>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>Long Jump</h3>
+                            <h3 className='font-bold mt-5 underline'>Hundred meter</h3>
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
@@ -109,7 +126,7 @@ function NoticeBoards() {
                     </div>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>Javalin</h3>
+                            <h3 className='font-bold mt-5 underline'>Two hundred meter</h3>
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
@@ -125,7 +142,7 @@ function NoticeBoards() {
                 <div className='flex  justify-between flex-wrap mx-9  mt-2'>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>High jump</h3>
+                            <h3 className='font-bold mt-5 underline'>Four hundred meter</h3>
                         </div>
                         <div className='mt-3 ml-2'>
                             <p><strong>1.</strong> {fourHundredMeter[0]?.name ? fourHundredMeter[0].name : "Not Added"} (Chess no {fourHundredMeter[0]?.chessno ? fourHundredMeter[0].chessno : ""})</p>
@@ -135,7 +152,7 @@ function NoticeBoards() {
                     </div>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>Long Jump</h3>
+                            <h3 className='font-bold mt-5 underline'>Eight hundred meter</h3>
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
@@ -148,7 +165,7 @@ function NoticeBoards() {
                     </div>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>Javalin</h3>
+                            <h3 className='font-bold mt-5 underline'>Short put</h3>
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
@@ -164,7 +181,7 @@ function NoticeBoards() {
                 <div className='flex  justify-between flex-wrap mx-9 mt-2'>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>High jump</h3>
+                            <h3 className='font-bold mt-5 underline'>Discuss Throw</h3>
                         </div>
                         <div className='mt-3 ml-2'>
                             <p><strong>1.</strong> {discusThrow[0]?.name ? discusThrow[0].name : "Not Added"} (Chess no {discusThrow[0]?.chessno ? discusThrow[0].chessno : ""})</p>
@@ -175,7 +192,7 @@ function NoticeBoards() {
                     </div>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>Long Jump</h3>
+                            <h3 className='font-bold mt-5 underline'>Relay hundred</h3>
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
@@ -187,7 +204,7 @@ function NoticeBoards() {
                     </div>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
-                            <h3 className='font-bold mt-5 underline'>Javalin</h3>
+                            <h3 className='font-bold mt-5 underline'>Relay four hundred</h3>
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
