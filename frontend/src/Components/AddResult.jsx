@@ -38,7 +38,6 @@ function AddResult() {
                 setrelayHundred(response.data.relayHundred)
                 setrelayFourHundred(response.data.relayFourHundred)
             }
-            console.log(highJump)
         }).catch((err) => {
             console.log(err)
         })
@@ -49,7 +48,6 @@ function AddResult() {
         e.preventDefault();
         const { name, value } = e.target;
         setFormValues({ ...formValues, [name]: parseInt(value) });
-        // setSubErrors({ ...subErrors, [name]: "" });
     };
     const handleSubmit = (event) => {
         const data = {
@@ -59,7 +57,10 @@ function AddResult() {
         const errors = validate(data)
         if (Object.keys(errors).length !== 0) {
             setErrors(errors);
-            message.error(`Please fill the the required place`)
+            if(errors.first || errors.second || errors.third){
+            message.error("Plese fill the required place")
+            }else if(errors.multple)
+            message.error(`${errors.multple}`)
         }else{
             AddResultAPI(data).then((response) => {
                 if (response.data.status) {

@@ -5,10 +5,13 @@ export const registrationAPI = (data) => {
 }
 
 export const getParticipantsAPI = () => {
-    console.log("jijijij")
     return axios.get('/participants')
 }
 
 export const AddResultAPI = (data) => {
     return axios.post('/add-result', data)
+}
+
+export const getResultAPI = () => {
+    return axios.get('/get-result')
 }

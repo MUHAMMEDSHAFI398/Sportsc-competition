@@ -480,5 +480,16 @@ module.exports = {
         }
 
         res.json({ status: true })
+    },
+    getResult:async(req,res,next)=>{
+        try{
+            const resultData = await result.find()
+            res.json({
+                status:true,
+                resultData:resultData[0]
+            })
+        }catch(err){
+            console.log(err)
+        }
     }
-}
+} 

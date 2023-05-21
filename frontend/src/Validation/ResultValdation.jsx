@@ -13,6 +13,10 @@ const validate = (values) => {
         errors.third = "Third price is required"
     }
 
+    if(values.first === values.second || values.second === values.third || values.first===values.third){
+        errors.multple="Invalid entry"
+    }
+
     return errors;
 };
 
