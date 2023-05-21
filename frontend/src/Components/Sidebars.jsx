@@ -120,7 +120,7 @@ function Sidebars() {
                   />
                 </svg>
 
-                <span className="flex-1 ml-3 whitespace-nowrap">Results</span>
+                <span className="flex-1 ml-3 whitespace-nowrap">Add results</span>
               </Link>
             </li>
 

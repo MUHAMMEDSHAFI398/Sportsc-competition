@@ -7,6 +7,7 @@ import { message } from 'antd'
 function Register() {
 
     const initialValue = { events: "" }
+
     const formInitialValue = {
         name: "", phone: "", age: ""
     };
@@ -20,8 +21,13 @@ function Register() {
 
         e.preventDefault();
         const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
+        if (name === 'phone' || name === 'age') {
+            setFormValues({ ...formValues, [name]: parseInt(value) });
+        } else {
+            setFormValues({ ...formValues, [name]: value });
+        }
         setErrors({ ...error, [name]: "" });
+        console.log(formValues)
     };
 
     const handleChange = (e) => {
@@ -33,7 +39,6 @@ function Register() {
     };
 
     const addEventsHandle = (e) => {
-          console.log(events)
         e.preventDefault();
         const eventErrors = eventValidate(events,event);
 
@@ -52,14 +57,19 @@ function Register() {
         if (Object.keys(errors).length !== 0) {
             setErrors(errors);
         } else {
+            console.log(formValues)
+            
             const data = {
                 ...formValues,
                 events
             }
             registrationAPI(data).then((response)=>{
                 if(response.data.status){
+                    setFormValues(formInitialValue)
+                    setEvents([])
                     message.success('Successfully registered')
                 }
+                
             }).catch((err)=>{
                 console.log(err)
             })
@@ -81,6 +91,7 @@ function Register() {
                             type="text"
                             name='name'
                             required
+                            value={formValues.name}
                             onChange={onChangeHandle}
                         />
                         {error.name && (<p className="ms-2 text-red-500 ">{error.name}</p>)}
@@ -92,6 +103,7 @@ function Register() {
                             type="number"
                             name='phone'
                             required
+                            value={formValues.phone}
                             onChange={onChangeHandle}
                         />
                         {error.phone && (<p className="ms-2 text-red-500 ">{error.phone}</p>)}
@@ -103,6 +115,7 @@ function Register() {
                             type="number"
                             name='age'
                             required
+                            value={formValues.age}
                             onChange={onChangeHandle}
                         />
                         {error.age && (<p className="ms-2 text-red-500 ">{error.age}</p>)}
@@ -126,13 +139,18 @@ function Register() {
                             placeholder='Events'
                             className='w-[305px] h-[35px] rounded-[8px] border border-black'
                         >
-                            {/* <option disabled value='' >Events</option> */}
-                            <option value='High jump' >High jump</option>
-                            <option value='Long jump' >Long jump</option>
-                            <option value='Lodfng jump' >Lodfng jump</option>
-                            <option value='Long jumpq' >Long jumpq</option>
-                            <option value='Long jumpw' >Long jumpw</option>
-                            <option value='Long jumpe' >Long jumpe</option>
+                            <option value='High-jump' >High-jump</option>
+                            <option value='Long-jump' >Long-jump</option>
+                            <option value='Hurldles' >Hurldles</option>
+                            <option value='Javalinthrow' >Javalinthrow</option>
+                            <option value='Hundred-Meter' >Hundred-Meter</option>
+                            <option value='TwoHundred-meter' >TwoHundred-meter</option>
+                            <option value='FourHundred-meter' >FourHundred-meter</option>
+                            <option value='Eighthundred-meter' >Eighthundred-meter</option>
+                            <option value='Short-put' >Short-put</option>
+                            <option value='Discus-throw' >Discus-throw</option>
+                            <option value='Relay 4*100' >Relay 4*100</option>
+                            <option value='Relay 4*400' >Relay 4*400</option>
                         </select>
                         <button
                             onClick={addEventsHandle}
@@ -143,7 +161,7 @@ function Register() {
                             events.map((obj) => {
                                 return (
                                     <div className='flex justify-center'>
-                                        <div className='flex justify-between w-[270px] h-[35px] bg-gray-500 rounded-[8px] mt-3 px-[12px]'>
+                                        <div className='flex justify-between text-white w-[270px] h-[35px] bg-gray-500 rounded-[8px] mt-3 px-[12px]'>
                                             <p className='mt-2'>{obj.events}</p>
                                             <i className='fas fa-times ml-3 mt-3 cursor-pointer' onClick={() => {
                                                 return setEvents(

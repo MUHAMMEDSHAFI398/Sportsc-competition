@@ -2,7 +2,7 @@ import React from 'react'
 
 function DashBoard() {
     return (
-        <div class="p-4 sm:ml-64">
+        <div className="p-4 sm:ml-64">
             <div className=''>
 
                 <div className='flex items-center justify-center mb-[20px]'>
