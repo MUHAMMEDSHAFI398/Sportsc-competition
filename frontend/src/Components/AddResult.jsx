@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AddResultAPI, getParticipantsAPI } from '../Services/Services'
 import { message } from 'antd'
 import validate from '../Validation/ResultValdation'
+import { useNavigate } from 'react-router-dom';
 
 function AddResult() {
     const [highJump, sethighJump] = useState([{ name: "", chessno: "" }])
@@ -21,6 +22,7 @@ function AddResult() {
     const intialValues = { first: "", second: "", third: "" }
     const [formValues, setFormValues] = useState(intialValues);
     const [error, setErrors] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         getParticipantsAPI().then((response) => {
@@ -40,6 +42,8 @@ function AddResult() {
             }
         }).catch((err) => {
             console.log(err)
+            navigate('/error')
+
         })
     }, [])
 
@@ -67,6 +71,9 @@ function AddResult() {
                     message.success("Result added successfully")
                     setFormValues(intialValues)
                 }
+            }).catch((err)=>{
+                console.log(err)
+                navigate('/error')
             })
         }    
         

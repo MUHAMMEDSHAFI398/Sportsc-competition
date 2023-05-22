@@ -39,7 +39,7 @@ module.exports = {
 
             res.json({ status: true })
         } catch (err) {
-            console.log(err)
+            next(err)
         }
     },
     getPraticipants: async (req, res, next) => {
@@ -51,7 +51,7 @@ module.exports = {
                     }
                 },
                 {
-                    $project: { 
+                    $project: {
                         name: 1,
                         chessno: 1,
                         _id: 0
@@ -239,257 +239,262 @@ module.exports = {
                 relayFourHundred: relayFourHundred
             })
         } catch (err) {
-            console.log(err)
+            next(err)
         }
     },
     addResult: async (req, res, next) => {
-        const first = await student.aggregate([
-            {
-                $match: {
-                    chessno: req.body.first
+        try {
+            const first = await student.aggregate([
+                {
+                    $match: {
+                        chessno: req.body.first
+                    }
+                },
+                {
+                    $project: {
+                        name: 1,
+                        chessno: 1,
+                        _id: 0
+                    }
                 }
-            },
-            {
-                $project: {
-                    name: 1,
-                    chessno: 1,
-                    _id: 0
+            ])
+            const second = await student.aggregate([
+                {
+                    $match: {
+                        chessno: req.body.second
+                    }
+                },
+                {
+                    $project: {
+                        name: 1,
+                        chessno: 1,
+                        _id: 0
+                    }
                 }
+            ])
+            const third = await student.aggregate([
+                {
+                    $match: {
+                        chessno: req.body.third
+                    }
+                },
+                {
+                    $project: {
+                        name: 1,
+                        chessno: 1,
+                        _id: 0
+                    }
+                }
+            ])
+            if (req.body.event === "highJump") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            highJump: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+
+                );
+            } else if (req.body.event === "longJump") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            longJump: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "hurdles") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            hurdles: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "javallin") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            javallin: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "hundredMeter") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            hundredMeter: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "twoHundredMeter") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            twoHundredMeter: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ]
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "fourHundredMeter") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            fourHundredMeter: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "eighHundredMeter") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            eighHundredMeter: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "shortPut") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            shortPut: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "discusThrow") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            discusThrow: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "relayHundred") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            relayHundred: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
+            } else if (req.body.event === "relayFourHundred") {
+                await result.updateOne(
+                    {},
+                    {
+                        $push: {
+                            relayFourHundred: {
+                                $each: [
+                                    { name: first[0].name, chessno: first[0].chessno },
+                                    { name: second[0].name, chessno: second[0].chessno },
+                                    { name: third[0].name, chessno: third[0].chessno }
+                                ],
+                                $slice: -3
+                            }
+                        }
+                    }
+                );
             }
-        ])
-        const second = await student.aggregate([
-            {
-                $match: {
-                    chessno: req.body.second
-                }
-            },
-            {
-                $project: {
-                    name: 1,
-                    chessno: 1,
-                    _id: 0
-                }
-            }
-        ])
-        const third = await student.aggregate([
-            {
-                $match: {
-                    chessno: req.body.third
-                }
-            },
-            {
-                $project: {
-                    name: 1,
-                    chessno: 1,
-                    _id: 0
-                }
-            }
-        ])
-        if (req.body.event === "highJump") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        highJump: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-                
-            );
-        } else if (req.body.event === "longJump") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        longJump: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "hurdles") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        hurdles: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "javallin") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        javallin: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "hundredMeter") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        hundredMeter: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    } 
-                } 
-            );
-        } else if (req.body.event === "twoHundredMeter") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        twoHundredMeter: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ]
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "fourHundredMeter") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        fourHundredMeter: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "eighHundredMeter") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        eighHundredMeter: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "shortPut") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        shortPut: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "discusThrow") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        discusThrow: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "relayHundred") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        relayHundred: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
-        } else if (req.body.event === "relayFourHundred") {
-            await result.updateOne(
-                {},
-                {
-                    $push: {
-                        relayFourHundred: {
-                            $each: [
-                                { name: first[0].name, chessno: first[0].chessno },
-                                { name: second[0].name, chessno: second[0].chessno },
-                                { name: third[0].name, chessno: third[0].chessno }
-                            ],
-                            $slice: -3
-                        }
-                    }
-                }
-            );
+
+            res.json({ status: true })
+        } catch (err) {
+            next(err)
         }
 
-        res.json({ status: true })
     },
-    getResult:async(req,res,next)=>{
-        try{
+    getResult: async (req, res, next) => {
+        try {
             const resultData = await result.find()
             res.json({
-                status:true,
-                resultData:resultData[0]
+                status: true,
+                resultData: resultData[0]
             })
-        }catch(err){
-            console.log(err)
+        } catch (err) {
+            next(err)
         }
     }
 } 

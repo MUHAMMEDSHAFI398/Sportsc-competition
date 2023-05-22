@@ -53,11 +53,11 @@ function NoticeBoards() {
 
     return (
         <div className='p-4 sm:ml-64'>
-            <div id="pdf-content" className=''>
+            <div id="pdf-content" className=''> 
                 <div className='flex items-center justify-center mb-[20px]'>
                     <h1 className='text-2xl font-bold underline'>Results</h1>
                 </div>
-                <button onClick={handleDownloadPDF}>Download PDF</button>
+                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={handleDownloadPDF}>Download PDF</button>
                 <div className='flex  justify-between flex-wrap mx-9'>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>

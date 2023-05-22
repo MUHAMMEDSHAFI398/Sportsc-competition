@@ -3,7 +3,7 @@ import validate from '../Validation/FormValidation';
 import eventValidate from '../Validation/EventValidation';
 import { registrationAPI } from '../Services/Services';
 import { message } from 'antd'
-
+import { useNavigate } from 'react-router-dom';
 function Register() {
 
     const initialValue = { events: "" }
@@ -16,6 +16,7 @@ function Register() {
     const [formValues, setFormValues] = useState(formInitialValue);
     const [error, setErrors] = useState({});
     const [eventErrors, seteventErrors] = useState({});
+    const navigate =useNavigate()
 
     const onChangeHandle = (e) => {
 
@@ -56,9 +57,7 @@ function Register() {
         const errors = validate(formValues);
         if (Object.keys(errors).length !== 0) {
             setErrors(errors);
-        } else {
-            console.log(formValues)
-            
+        } else {            
             const data = {
                 ...formValues,
                 events
@@ -72,6 +71,7 @@ function Register() {
                 
             }).catch((err)=>{
                 console.log(err)
+                navigate('/error')
             })
         }
     }
