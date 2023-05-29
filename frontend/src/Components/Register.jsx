@@ -67,6 +67,9 @@ function Register() {
                     setFormValues(formInitialValue)
                     setEvents([])
                     message.success('Successfully registered')
+                    seteventErrors ({});
+                }else{
+                    navigate('/error') 
                 }
                 
             }).catch((err)=>{

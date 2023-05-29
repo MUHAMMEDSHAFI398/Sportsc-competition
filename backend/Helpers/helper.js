@@ -19,7 +19,12 @@ const uniqueCodeGenerator = () => {
 
 };
 
+function hasDuplicates(array) {
+    return new Set(array).size !== array.length;
+  }
+
 
 module.exports = {
-    uniqueCodeGenerator
+    uniqueCodeGenerator,
+    hasDuplicates
 } 

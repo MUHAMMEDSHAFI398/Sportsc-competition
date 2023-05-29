@@ -2,21 +2,25 @@
 const student = require('../models/student')
 const helpers = require('../Helpers/helper')
 const result = require('../models/result')
+const { registerValidation,eventValidation} = require('../Validation/Validation')
 
 module.exports = {
     register: async (req, res, next) => {
+        
         try {
+            registerValidation(req.body,next)
+            eventValidation(req.body.events,next)
             let arr = req.body.events
             const chessno = await helpers.uniqueCodeGenerator()
             let eventArr = []
             for (let i = 0; i < arr.length; i++) {
                 eventArr.push(arr[i].events)
-            }
+            } 
             const count = await student.countDocuments({})
             if (count < 1) {
                 await result.create({
                     highJump: [],
-                    longJump: [],
+                    longJump: [], 
                     hurdles: [],
                     javallin: [],
                     hundredMeter: [],
@@ -244,6 +248,7 @@ module.exports = {
     },
     addResult: async (req, res, next) => {
         try {
+            console.log(req.body)
             const first = await student.aggregate([
                 {
                     $match: {

@@ -72,8 +72,8 @@ function AddResult() {
                     setFormValues(intialValues)
                 }
             }).catch((err)=>{
-                console.log(err)
                 navigate('/error')
+                console.log(err) 
             })
         }    
         

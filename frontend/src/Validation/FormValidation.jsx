@@ -14,11 +14,11 @@ const validate = (values) => {
         errors.age = "Invalid entry"
     }
 
-    if (values.name === "") {
-        errors.name = "Name is required"
-    } else if (!isNaN(values.name)) {
-        errors.name = "Invalid entry"
-    }
+    // if (values.name === "") {
+    //     errors.name = "Name is required"
+    // } else if (!isNaN(values.name)) {
+    //     errors.name = "Invalid entry"
+    // }
 
     return errors;
 };

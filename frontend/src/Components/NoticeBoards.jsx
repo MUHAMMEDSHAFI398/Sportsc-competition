@@ -64,9 +64,9 @@ function NoticeBoards() {
                             <h3 className='font-bold mt-5 underline'>High jump</h3>
                         </div>
                         <div className='mt-3 ml-2'>
-                            <p><strong>1.</strong> {highJump[0]?.name ? highJump[0].name : "Not Added"} (Chess no {highJump[0]?.chessno ? highJump[0].chessno : ""})</p>
-                            <p><strong>2.</strong> {highJump[1]?.name ? highJump[1].name : "Not Added"} (Chess no {highJump[1]?.chessno ? highJump[1]?.chessno : ""})</p>
-                            <p><strong>3.</strong> {highJump[2]?.name ? highJump[2].name : "Not Added"} (Chess no {highJump[2]?.chessno ? highJump[2].chessno : ""})</p>
+                            <p><strong>1.</strong> {highJump[0]?.name ? highJump[0].name : "Not Added"}  {highJump[0]?.chessno ? `(Chess no ${highJump[0].chessno})` : ""}</p>
+                            <p><strong>2.</strong> {highJump[1]?.name ? highJump[1].name : "Not Added"}  {highJump[1]?.chessno ? `(Chess no ${highJump[1].chessno})` : ""}</p>
+                            <p><strong>3.</strong> {highJump[2]?.name ? highJump[2].name : "Not Added"}  {highJump[2]?.chessno ? `(Chess no ${highJump[2].chessno})` : ""}</p>
                         </div>
 
                     </div>
@@ -76,9 +76,9 @@ function NoticeBoards() {
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
-                                <p><strong>1.</strong> {longJump[0]?.name ? longJump[0].name : "Not Added"} (Chess no {longJump[0]?.chessno ? longJump[0].chessno : ""})</p>
-                                <p><strong>2.</strong> {longJump[1]?.name ? longJump[1].name : "Not Added"} (Chess no {longJump[1]?.chessno ? longJump[1]?.chessno : ""})</p>
-                                <p><strong>3.</strong> {longJump[2]?.name ? longJump[2].name : "Not Added"} (Chess no {longJump[2]?.chessno ? longJump[2].chessno : ""})</p>
+                                <p><strong>1.</strong> {longJump[0]?.name ? longJump[0].name : "Not Added"}  {longJump[0]?.chessno ? `(Chess no ${longJump[0].chessno})` : ""}</p>
+                                <p><strong>2.</strong> {longJump[1]?.name ? longJump[1].name : "Not Added"}  {longJump[1]?.chessno ? `(Chess no ${longJump[1].chessno})` : ""}</p>
+                                <p><strong>3.</strong> {longJump[2]?.name ? longJump[2].name : "Not Added"}  {longJump[2]?.chessno ? `(Chess no ${longJump[2].chessno})` : ""}</p>
                             </div>
                         </div>
 
@@ -90,9 +90,9 @@ function NoticeBoards() {
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
-                                <p><strong>1.</strong> {hurdles[0]?.name ? hurdles[0].name : "Not Added"} (Chess no {hurdles[0]?.chessno ? hurdles[0].chessno : ""})</p>
-                                <p><strong>2.</strong> {hurdles[1]?.name ? hurdles[1].name : "Not Added"} (Chess no {hurdles[1]?.chessno ? hurdles[1]?.chessno : ""})</p>
-                                <p><strong>3.</strong> {hurdles[2]?.name ? hurdles[2].name : "Not Added"} (Chess no {hurdles[2]?.chessno ? hurdles[2].chessno : ""})</p>
+                                <p><strong>1.</strong> {hurdles[0]?.name ? hurdles[0].name : "Not Added"} {hurdles[0]?.chessno ? `(Chess no ${hurdles[0].chessno})` : ""}</p>
+                                <p><strong>2.</strong> {hurdles[1]?.name ? hurdles[1].name : "Not Added"} {hurdles[1]?.chessno ? `(Chess no ${hurdles[1].chessno})` : ""}</p>
+                                <p><strong>3.</strong> {hurdles[2]?.name ? hurdles[2].name : "Not Added"} {hurdles[2]?.chessno ? `(Chess no ${hurdles[2].chessno})` : ""}</p>
                             </div>
                         </div>
                     </div>
@@ -105,9 +105,9 @@ function NoticeBoards() {
                             <h3 className='font-bold mt-5 underline'>Jvavlin throw</h3>
                         </div>
                         <div className='mt-3 ml-2'>
-                            <p><strong>1.</strong> {javalin[0]?.name ? javalin[0].name : "Not Added"} (Chess no {javalin[0]?.chessno ? javalin[0].chessno : ""})</p>
-                            <p><strong>2.</strong> {javalin[1]?.name ? javalin[1].name : "Not Added"} (Chess no {javalin[1]?.chessno ? javalin[1]?.chessno : ""})</p>
-                            <p><strong>3.</strong> {javalin[2]?.name ? javalin[2].name : "Not Added"} (Chess no {javalin[2]?.chessno ? javalin[2].chessno : ""})</p>
+                            <p><strong>1.</strong> {javalin[0]?.name ? javalin[0].name : "Not Added"}  {javalin[0]?.chessno ? `(Chess no ${javalin[0].chessno})` : ""}</p>
+                            <p><strong>2.</strong> {javalin[1]?.name ? javalin[1].name : "Not Added"}  {javalin[1]?.chessno ? `(Chess no ${javalin[1].chessno})` : ""}</p>
+                            <p><strong>3.</strong> {javalin[2]?.name ? javalin[2].name : "Not Added"}  {javalin[2]?.chessno ? `(Chess no ${javalin[2].chessno})` : ""}</p>
                         </div>
 
                     </div>
@@ -117,9 +117,9 @@ function NoticeBoards() {
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
-                                <p><strong>1.</strong> {hundredMeter[0]?.name ? hundredMeter[0].name : "Not Added"} (Chess no {hundredMeter[0]?.chessno ? hundredMeter[0].chessno : ""})</p>
-                                <p><strong>2.</strong> {hundredMeter[1]?.name ? hundredMeter[1].name : "Not Added"} (Chess no {hundredMeter[1]?.chessno ? hundredMeter[1]?.chessno : ""})</p>
-                                <p><strong>3.</strong> {hundredMeter[2]?.name ? hundredMeter[2].name : "Not Added"} (Chess no {hundredMeter[2]?.chessno ? hundredMeter[2].chessno : ""})</p>
+                                <p><strong>1.</strong> {hundredMeter[0]?.name ? hundredMeter[0].name : "Not Added"}  {hundredMeter[0]?.chessno ? `(Chess no ${hundredMeter[0].chessno})` : ""}</p>
+                                <p><strong>2.</strong> {hundredMeter[1]?.name ? hundredMeter[1].name : "Not Added"}  {hundredMeter[1]?.chessno ? `(Chess no ${hundredMeter[1].chessno})` : ""}</p>
+                                <p><strong>3.</strong> {hundredMeter[2]?.name ? hundredMeter[2].name : "Not Added"}  {hundredMeter[2]?.chessno ? `(Chess no ${hundredMeter[2].chessno})` : ""}</p>
                             </div>
                         </div>
 
@@ -130,9 +130,9 @@ function NoticeBoards() {
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
-                                <p><strong>1.</strong> {twoHundredMeter[0]?.name ? twoHundredMeter[0].name : "Not Added"} (Chess no {twoHundredMeter[0]?.chessno ? twoHundredMeter[0].chessno : ""})</p>
-                                <p><strong>2.</strong> {twoHundredMeter[1]?.name ? twoHundredMeter[1].name : "Not Added"} (Chess no {twoHundredMeter[1]?.chessno ? twoHundredMeter[1]?.chessno : ""})</p>
-                                <p><strong>3.</strong> {twoHundredMeter[2]?.name ? twoHundredMeter[2].name : "Not Added"} (Chess no {twoHundredMeter[2]?.chessno ? twoHundredMeter[2].chessno : ""})</p>
+                                <p><strong>1.</strong> {twoHundredMeter[0]?.name ? twoHundredMeter[0].name : "Not Added"} {twoHundredMeter[0]?.chessno ? `(Chess no ${twoHundredMeter[0].chessno})` : ""}</p>
+                                <p><strong>2.</strong> {twoHundredMeter[1]?.name ? twoHundredMeter[1].name : "Not Added"} {twoHundredMeter[1]?.chessno ? `(Chess no ${twoHundredMeter[1].chessno})` : ""}</p>
+                                <p><strong>3.</strong> {twoHundredMeter[2]?.name ? twoHundredMeter[2].name : "Not Added"} {twoHundredMeter[2]?.chessno ? `(Chess no ${twoHundredMeter[2].chessno})` : ""}</p>
                             </div>
                         </div>
                     </div>
@@ -145,9 +145,9 @@ function NoticeBoards() {
                             <h3 className='font-bold mt-5 underline'>Four hundred meter</h3>
                         </div>
                         <div className='mt-3 ml-2'>
-                            <p><strong>1.</strong> {fourHundredMeter[0]?.name ? fourHundredMeter[0].name : "Not Added"} (Chess no {fourHundredMeter[0]?.chessno ? fourHundredMeter[0].chessno : ""})</p>
-                            <p><strong>2.</strong> {fourHundredMeter[1]?.name ? fourHundredMeter[1].name : "Not Added"} (Chess no {fourHundredMeter[1]?.chessno ? fourHundredMeter[1]?.chessno : ""})</p>
-                            <p><strong>3.</strong> {fourHundredMeter[2]?.name ? fourHundredMeter[2].name : "Not Added"} (Chess no {fourHundredMeter[2]?.chessno ? fourHundredMeter[2].chessno : ""})</p>
+                            <p><strong>1.</strong> {fourHundredMeter[0]?.name ? fourHundredMeter[0].name : "Not Added"}  {fourHundredMeter[0]?.chessno ? `(Chess no ${fourHundredMeter[0].chessno})` : ""}</p>
+                            <p><strong>2.</strong> {fourHundredMeter[1]?.name ? fourHundredMeter[1].name : "Not Added"}  {fourHundredMeter[1]?.chessno ? `(Chess no ${fourHundredMeter[1].chessno})` : ""}</p>
+                            <p><strong>3.</strong> {fourHundredMeter[2]?.name ? fourHundredMeter[2].name : "Not Added"}  {fourHundredMeter[2]?.chessno ? `(Chess no ${fourHundredMeter[2].chessno})` : ""}</p>
                         </div>
                     </div>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
@@ -156,9 +156,9 @@ function NoticeBoards() {
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
-                                <p><strong>1.</strong> {eightHundredMeter[0]?.name ? eightHundredMeter[0].name : "Not Added"} (Chess no {eightHundredMeter[0]?.chessno ? eightHundredMeter[0].chessno : ""})</p>
-                                <p><strong>2.</strong> {eightHundredMeter[1]?.name ? eightHundredMeter[1].name : "Not Added"} (Chess no {eightHundredMeter[1]?.chessno ? eightHundredMeter[1]?.chessno : ""})</p>
-                                <p><strong>3.</strong> {eightHundredMeter[2]?.name ? eightHundredMeter[2].name : "Not Added"} (Chess no {eightHundredMeter[2]?.chessno ? eightHundredMeter[2].chessno : ""})</p>
+                                <p><strong>1.</strong> {eightHundredMeter[0]?.name ? eightHundredMeter[0].name : "Not Added"}  {eightHundredMeter[0]?.chessno ? `(Chess no ${eightHundredMeter[0].chessno})` : ""}</p>
+                                <p><strong>2.</strong> {eightHundredMeter[1]?.name ? eightHundredMeter[1].name : "Not Added"}  {eightHundredMeter[1]?.chessno ? `(Chess no ${eightHundredMeter[1].chessno})` : ""}</p>
+                                <p><strong>3.</strong> {eightHundredMeter[2]?.name ? eightHundredMeter[2].name : "Not Added"}  {eightHundredMeter[2]?.chessno ? `(Chess no ${eightHundredMeter[2].chessno})` : ""}</p>
                             </div>
                         </div>
 
@@ -169,9 +169,9 @@ function NoticeBoards() {
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
-                                <p><strong>1.</strong> {shortPut[0]?.name ? shortPut[0].name : "Not Added"} (Chess no {shortPut[0]?.chessno ? shortPut[0].chessno : ""})</p>
-                                <p><strong>2.</strong> {shortPut[1]?.name ? shortPut[1].name : "Not Added"} (Chess no {shortPut[1]?.chessno ? shortPut[1]?.chessno : ""})</p>
-                                <p><strong>3.</strong> {shortPut[2]?.name ? shortPut[2].name : "Not Added"} (Chess no {shortPut[2]?.chessno ? shortPut[2].chessno : ""})</p>
+                                <p><strong>1.</strong> {shortPut[0]?.name ? shortPut[0].name : "Not Added"}  {shortPut[0]?.chessno ? `(Chess no ${shortPut[0].chessno})` : ""}</p>
+                                <p><strong>2.</strong> {shortPut[1]?.name ? shortPut[1].name : "Not Added"}  {shortPut[1]?.chessno ? `(Chess no ${shortPut[1].chessno})` : ""}</p>
+                                <p><strong>3.</strong> {shortPut[2]?.name ? shortPut[2].name : "Not Added"}  {shortPut[2]?.chessno ? `(Chess no ${shortPut[2].chessno})` : ""}</p>
                             </div>
                         </div>
                     </div>
@@ -184,9 +184,9 @@ function NoticeBoards() {
                             <h3 className='font-bold mt-5 underline'>Discuss Throw</h3>
                         </div>
                         <div className='mt-3 ml-2'>
-                            <p><strong>1.</strong> {discusThrow[0]?.name ? discusThrow[0].name : "Not Added"} (Chess no {discusThrow[0]?.chessno ? discusThrow[0].chessno : ""})</p>
-                            <p><strong>2.</strong> {discusThrow[1]?.name ? discusThrow[1].name : "Not Added"} (Chess no {discusThrow[1]?.chessno ? discusThrow[1]?.chessno : ""})</p>
-                            <p><strong>3.</strong> {discusThrow[2]?.name ? discusThrow[2].name : "Not Added"} (Chess no {discusThrow[2]?.chessno ? discusThrow[2].chessno : ""})</p>
+                            <p><strong>1.</strong> {discusThrow[0]?.name ? discusThrow[0].name : "Not Added"}  {discusThrow[0]?.chessno ? `(Chess no ${discusThrow[0].chessno})` : ""}</p>
+                            <p><strong>2.</strong> {discusThrow[1]?.name ? discusThrow[1].name : "Not Added"}  {discusThrow[1]?.chessno ? `(Chess no ${discusThrow[1].chessno})` : ""}</p>
+                            <p><strong>3.</strong> {discusThrow[2]?.name ? discusThrow[2].name : "Not Added"}  {discusThrow[2]?.chessno ? `(Chess no ${discusThrow[2].chessno})` : ""}</p>
                         </div>
 
                     </div>
@@ -196,9 +196,9 @@ function NoticeBoards() {
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
-                                <p><strong>1.</strong> {relayHundred[0]?.name ? relayHundred[0].name : "Not Added"} (Chess no {relayHundred[0]?.chessno ? relayHundred[0].chessno : ""})</p>
-                                <p><strong>2.</strong> {relayHundred[1]?.name ? relayHundred[1].name : "Not Added"} (Chess no {relayHundred[1]?.chessno ? relayHundred[1]?.chessno : ""})</p>
-                                <p><strong>3.</strong> {relayHundred[2]?.name ? relayHundred[2].name : "Not Added"} (Chess no {relayHundred[2]?.chessno ? relayHundred[2].chessno : ""})</p>
+                                <p><strong>1.</strong> {relayHundred[0]?.name ? relayHundred[0].name : "Not Added"}  {relayHundred[0]?.chessno ? `(Chess no ${relayHundred[0].chessno})` : ""}</p>
+                                <p><strong>2.</strong> {relayHundred[1]?.name ? relayHundred[1].name : "Not Added"}  {relayHundred[1]?.chessno ? `(Chess no ${relayHundred[1].chessno})` : ""}</p>
+                                <p><strong>3.</strong> {relayHundred[2]?.name ? relayHundred[2].name : "Not Added"}  {relayHundred[2]?.chessno ? `(Chess no ${relayHundred[2].chessno})` : ""}</p>
                             </div>
                         </div>
                     </div>
@@ -208,9 +208,9 @@ function NoticeBoards() {
                         </div>
                         <div>
                             <div className='mt-3 ml-2'>
-                                <p><strong>1.</strong> {relayFourHundred[0]?.name ? relayFourHundred[0].name : "Not Added"} (Chess no {relayFourHundred[0]?.chessno ? relayFourHundred[0].chessno : ""})</p>
-                                <p><strong>2.</strong> {relayFourHundred[1]?.name ? relayFourHundred[1].name : "Not Added"} (Chess no {relayFourHundred[1]?.chessno ? relayFourHundred[1]?.chessno : ""})</p>
-                                <p><strong>3.</strong> {relayFourHundred[2]?.name ? relayFourHundred[2].name : "Not Added"} (Chess no {relayFourHundred[2]?.chessno ? relayFourHundred[2].chessno : ""})</p>
+                                <p><strong>1.</strong> {relayFourHundred[0]?.name ? relayFourHundred[0].name : "Not Added"}  {relayFourHundred[0]?.chessno ? `(Chess no ${relayFourHundred[0].chessno})` : ""}</p>
+                                <p><strong>2.</strong> {relayFourHundred[1]?.name ? relayFourHundred[1].name : "Not Added"}  {relayFourHundred[1]?.chessno ? `(Chess no ${relayFourHundred[1].chessno})` : ""}</p>
+                                <p><strong>3.</strong> {relayFourHundred[2]?.name ? relayFourHundred[2].name : "Not Added"}  {relayFourHundred[2]?.chessno ? `(Chess no ${relayFourHundred[2].chessno})` : ""}</p>
                             </div>
                         </div>
                     </div>
