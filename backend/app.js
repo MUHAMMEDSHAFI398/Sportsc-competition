@@ -10,7 +10,7 @@ dbconnect.dbconnect();
 dotenv.config()
 
 app.use(cors({
-    origin:["https://deploymern"],
+    origin:[""],
     methods:["GET","POST"],
     credentials:true
 }
