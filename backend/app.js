@@ -9,7 +9,13 @@ const errorHandler =require('./middlewares/errorhandler')
 dbconnect.dbconnect();
 dotenv.config()
 
-app.use(cors());
+app.use(cors({
+    origin:["https://deploymern"],
+    methods:["GET","POST"],
+    credentials:true
+}
+
+));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

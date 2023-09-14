@@ -37,7 +37,7 @@ function NoticeBoards() {
     }, [])
 
     const handleDownloadPDF = () => {
-        const element = document.getElementById('pdf-content');
+        const element = document.getElementById('pdf-content');        
 
         html2pdf()
             .set({
@@ -47,8 +47,7 @@ function NoticeBoards() {
                 html2canvas: { dpi: 192, letterRendering: true },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
             })
-            .from(element)
-            .save();
+            .from(element).save();
     };
 
     return (
@@ -57,7 +56,7 @@ function NoticeBoards() {
                 <div className='flex items-center justify-center mb-[20px]'>
                     <h1 className='text-2xl font-bold underline'>Results</h1>
                 </div>
-                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={handleDownloadPDF}>Download PDF</button>
+                <button className='downloadbtn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' id='downloadbtn' onClick={handleDownloadPDF}>Download PDF</button>
                 <div className='flex  justify-between flex-wrap mx-9'>
                     <div className='card w-[360px] h-[160px] shadow-xl'>
                         <div className='flex justify-center'>
